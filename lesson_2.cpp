@@ -1,37 +1,41 @@
-bnbbn
 #include <cmath>
 #include <iostream>
-int main() {
-  double a, b, c, x1, x2, D;
-  const double p = 4;
-  const double k = 2;
-  std::cout << "Enter a: ";
+int main(int argc, char const *argv[]) {
+
+  int min = 2;
+  int max = 255;
+  int a, b, c;
+
+  std::cout << " Enter argument from " <<  min << " to " << max << ": ";
   std::cin >> a;
-  if (a >= 2 && a <= 255) {
-    std::cout << " true " << std::endl;
-  } else {
-    std::cout << "falce" << std::endl;
+  if (a < min || a > max || a == 0) {
+    printf("ERROR");
+    return 0;
   }
-  std::cout << "Enter b: ";
+  std::cout << " Enter argument from " <<  min << " to " << max << ": ";
   std::cin >> b;
-  if (b >= 2 && b <= 255) {
-    std::cout << " true " << std::endl;
-  } else {
-    std::cout << "falce." << std::endl;
+  if (b < min || b > max) {
+	printf("ERROR");
+	return 0;
   }
-  std::cout << "Enter c: ";
+  std::cout << " Enter argument from " <<  min << " to " << max << ": ";
   std::cin >> c;
-  if (c >= 2 && c <= 255) {
-    std::cout << " true " << std::endl;
-  } else {
-    std::cout << "falce" << std::endl;
+  if (c < min && c > max) {
+    printf("ERROR");
+    return 0;
   }
+  float x1, x2;
+  float D;
+  int p = 4;
+  int k = 2;
   D = (b * b - p * a * c);
-  if (D >= 0 && a != 0) {
-    x1 = (-b + sqrt(D)) / (k * a);
-    x2 = (-b - sqrt(D)) / (k * a);
-    printf("x1=%5.2f\n", x1);
-    printf("x2=%5.2f\n", x2);
+  int dec_sqrt = sqrt(D);
+  int mult_numb = (k * a);
+  if (D >= 0) {
+    x1 = (-b + dec_sqrt) / mult_numb;
+    x2 = (-b - dec_sqrt) / mult_numb;
+    printf("x1=%2.0f\n", x1);
+    printf("x2=%2.0f\n", x2);
   } else {
     std::cout << " Root doesnt exist " << std::endl;
   }
